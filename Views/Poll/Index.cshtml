@@ -1,0 +1,29 @@
+﻿@model List<Poll>
+
+<h2>QuickPoll</h2>
+
+<form method="post" asp-action="Create">
+    <input type="text" name="Question" placeholder="Poll question..." required />
+    <br />
+    <input type="text" name="optionTexts" placeholder="Option 1" required />
+    <input type="text" name="optionTexts" placeholder="Option 2" required />
+    <input type="text" name="optionTexts" placeholder="Option 3" required />
+    <button type="submit">Create Poll</button>
+</form>
+
+@foreach (var poll in Model)
+{
+    <h3>@poll.Question</h3>
+    <ul>
+        @foreach (var option in poll.Options)
+        {
+            <li>
+                @option.OptionText - @option.Votes votes
+                <form method="post" asp-action="Vote">
+                    <input type="hidden" name="optionId" value="@option.Id" />
+                    <button type="submit">Vote</button>
+                </form>
+            </li>
+        }
+    </ul>
+}
