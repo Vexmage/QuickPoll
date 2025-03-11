@@ -34,6 +34,20 @@ public class PollController : Controller
     }
 
     [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        var poll = _context.Polls.Include(p => p.Options).FirstOrDefault(p => p.Id == id); // Finds the poll by ID.
+        if (poll != null)
+        {
+            _context.PollOptions.RemoveRange(poll.Options); // Delete related options
+            _context.Polls.Remove(poll); // Delete poll itself
+            _context.SaveChanges(); // Saves the changes to the database.
+        }
+        return RedirectToAction("Index");
+    }
+
+
+    [HttpPost]
     public IActionResult Vote(int optionId)
     {
         var option = _context.PollOptions.Find(optionId);
