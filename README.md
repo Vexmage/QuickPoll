@@ -1,8 +1,8 @@
 # QuickPoll 🗳
 
-A simple polling app built with ASP.NET Core MVC, Entity Framework Core, and SQLite.
--- Getting Started
--- Prerequisites
+### A simple polling app built with ASP.NET Core MVC, Entity Framework Core, and SQLite.
+
+### Getting Started
 
 ## Ensure you have the following installed:
 
@@ -11,16 +11,16 @@ A simple polling app built with ASP.NET Core MVC, Entity Framework Core, and SQL
     Git (for cloning the repository)
 
 ## Installation & Setup
-Clone the Repository
+- Clone the Repository
 
-git clone https://github.com/Vexmage/QuickPoll.git
-cd QuickPoll
+- git clone https://github.com/Vexmage/QuickPoll.git
+- cd QuickPoll
 
 ## Set Up the Project
-Create the .sln file and add the project to it:
+- Create the .sln file and add the project to it:
 
-dotnet new sln -n QuickPoll
-dotnet sln add QuickPoll.csproj
+- dotnet new sln -n QuickPoll
+- dotnet sln add QuickPoll.csproj
 
 ## Install Dependencies
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
