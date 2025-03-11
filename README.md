@@ -6,9 +6,9 @@
 
 ## Ensure you have the following installed:
 
-    .NET SDK 7.0+ → Download Here
-    Visual Studio (or VS Code with C# Extension)
-    Git (for cloning the repository)
+-    .NET SDK 7.0+ 
+-    Visual Studio (or VS Code with C# Extension)
+-    Git (for cloning the repository)
 
 ## Installation & Setup
 - Clone the Repository
