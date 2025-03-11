@@ -14,10 +14,13 @@
 @foreach (var poll in Model)
 {
     <h3>@poll.Question</h3>
-    <form method="post" asp-action="Delete">
-        <input type="hidden" name="id" value="@poll.Id" />
-        <button type="submit" class="btn btn-danger btn-sm">Delete Poll</button>
-    </form>
+    <div class="d-flex">
+        <form method="post" asp-action="Delete">
+            <input type="hidden" name="id" value="@poll.Id" />
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+        <a class="btn btn-warning btn-sm ms-2" asp-action="Edit" asp-route-id="@poll.Id">Edit</a>
+    </div>
     <ul>
         @foreach (var option in poll.Options)
         {

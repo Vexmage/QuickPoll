@@ -17,6 +17,16 @@ public class PollController : Controller
         return View(polls);
     }
 
+    public IActionResult Edit(int id)
+    {
+        var poll = _context.Polls.Include(p => p.Options).FirstOrDefault(p => p.Id == id);
+        if (poll == null)
+        {
+            return NotFound();
+        }
+        return View(poll);
+    }
+
     [HttpPost]
     public IActionResult Create(Poll poll, List<string> optionTexts)
     {
@@ -46,6 +56,28 @@ public class PollController : Controller
         return RedirectToAction("Index");
     }
 
+    [HttpPost]
+    public IActionResult Edit(Poll updatedPoll, List<string> optionTexts)
+    {
+        var poll = _context.Polls.Include(p => p.Options).FirstOrDefault(p => p.Id == updatedPoll.Id);
+        if (poll != null)
+        {
+            // Update the poll question
+            poll.Question = updatedPoll.Question;
+
+            // Clear existing options and add new ones
+            _context.PollOptions.RemoveRange(poll.Options);
+            poll.Options.Clear();
+            foreach (var text in optionTexts)
+            {
+                poll.Options.Add(new PollOption { OptionText = text });
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(updatedPoll);
+    }
 
     [HttpPost]
     public IActionResult Vote(int optionId)
