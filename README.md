@@ -23,29 +23,29 @@
 - dotnet sln add QuickPoll.csproj
 
 ## Install Dependencies
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite
-dotnet add package Microsoft.EntityFrameworkCore.Tools
+- dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+- dotnet add package Microsoft.EntityFrameworkCore.Tools
 
 ## Apply Database Migrations
-dotnet ef migrations add InitialCreate
-dotnet ef database update
+- dotnet ef migrations add InitialCreate
+- dotnet ef database update
 
 ## Run the Application
-dotnet run
+- dotnet run
 
 ## Troubleshooting
 Common Issues & Fixes
 
-❌ "dotnet ef" command not found
-✅ Install the EF Core CLI tool:
+- ❌ "dotnet ef" command not found
+- ✅ Install the EF Core CLI tool:
 
-dotnet tool install --global dotnet-ef
+- dotnet tool install --global dotnet-ef
 
-❌ "SQLite Error: Table Polls already exists"
-✅ Delete the existing database and recreate it:
+- ❌ "SQLite Error: Table Polls already exists"
+- ✅ Delete the existing database and recreate it:
 
-rm polls.db
-dotnet ef database update
+- rm polls.db
+- dotnet ef database update
 
 ## License
 
